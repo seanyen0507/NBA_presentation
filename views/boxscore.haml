@@ -1,0 +1,32 @@
+.container
+  %form{:action => '/nbaplayers', :method => 'post', :id => 'check-form'}
+    %dl{class: 'user-input'}
+      %dt
+        %label{:for => 'check-playernames'} Player-names
+      %dd
+        - if @playername
+          = find_and_preserve "<textarea cols=\"35\" id=\"check-playernames\" name=\"playernames\" rows=\"10\">#{@playername.join("\r\n")}</textarea>"
+        - else
+          %textarea{id: 'check-playernames', name: 'playernames', rows: '10', cols: '35'}
+    .float-clear
+      %input{:type => 'submit', :value => 'submit', :id => 'check-submit', :class => 'submit'}
+  %form{:action => "/nbaplayers/#{@id}", :method => 'post', :id => 'delete-form'}
+    - if @action == :update
+      %input{:type => 'submit', :name => '_method', :value => 'update', :class => 'update'}  
+      %input{:type => 'submit', :name => '_method', :value => 'delete', :class => 'delete'}
+  - if @results
+    %h1 Results
+    %table{class: 'center'}
+      %tbody
+        %tr
+          %th Player names
+          %th Start_or_not
+        - @results.each do |player, lineup|
+          %tr
+            %td
+              = player
+            %td
+              = lineup
+
+  - else
+    %p "Enter search criteria above"

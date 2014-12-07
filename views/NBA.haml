@@ -1,0 +1,19 @@
+.container
+
+	%form{action: '/nba', method: 'get', id: 'user-form'}
+		%input{type: 'text', name: 'playername', id: 'home-form-username', placeholder: 'playername here...'}
+		%input{type: 'submit', id: 'home-form-submit', class: 'submit', value: 'submit'}
+	%p
+
+	-if @nba
+		%table{class: 'center'}
+			%tbody
+				%tr
+					%th Box-score
+					%th Record
+				-@nba['profiles'].each do |profile|
+					%tr
+						%td
+							= profile['Box-score']
+						%td{width: '300'}
+							= profile['Record']

@@ -1,0 +1,21 @@
+#header_wrapper
+  %nav{:id => 'menu'}
+    %ul
+      - if current_page?
+        %li{:class => "current_page_item"}
+          %a{:href => '/', :id => 'home'} Home
+      - else
+        %li
+          %a{:href => '/', :id => 'home'} Home
+      - if current_page?('nba')
+        %li{:class => 'current_page_item'}
+          %a{:href => '/nba', :id => 'nba'} NBA Player
+      - else
+        %li
+          %a{:href => '/nba', :id => 'nba'} NBA Player
+      - if current_page?('nbaplayers')
+        %li{:class => 'current_page_item'}
+          %a{:href => '/nbaplayers', :id => 'nbaplayers'} Players
+      - else
+        %li
+          %a{:href => '/nbaplayers', :id => 'nbaplayers'} Players
