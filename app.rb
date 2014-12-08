@@ -76,7 +76,7 @@ class NBACatcherApp < Sinatra::Base
     result = HTTParty.post(request_url, options)
 
      if (result.code != 200)
-       flash[:notice] = 'usernames not found'
+       flash[:notice] = 'playernames not found'
        redirect '/nbaplayers'
        return nil
      end
@@ -101,7 +101,7 @@ class NBACatcherApp < Sinatra::Base
     }
     result = HTTParty.put(request_url,options)
 
-    flash[:notice] = 'record of tutorial updated'
+    flash[:notice] = 'record of players updated'
 
     id = result.request.last_uri.path.split('/').last
     session[:result] = result.to_json
@@ -128,7 +128,7 @@ class NBACatcherApp < Sinatra::Base
   delete '/nbaplayers/:id' do
     request_url = "#{API_BASE_URI}/api/v1/nbaplayers/#{params[:id]}"
     result = HTTParty.delete(request_url)
-    flash[:notice] = 'record of tutorial deleted'
+    flash[:notice] = 'record of players deleted'
     redirect '/nbaplayers'
   end
 end
