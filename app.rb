@@ -45,8 +45,8 @@ class NBACatcherApp < Sinatra::Base
   end
 
   get '/nba/:playername' do
-    @nba = get_profile(:playername)
     @playername = params[:playername]
+    @nba = HTTParty.get api_url("player/#{@playername}.json")
 
     if @playername && @nba.nil?
       flash[:notice] = 'playernames not found' if @nba.nil?
