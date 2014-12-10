@@ -4,5 +4,5 @@ NBA_presentation
 
 NBA catcher's presentation layer
 
-heroku:
+You can see the interface with this api here:
 http://nba-presentation.herokuapp.com/
