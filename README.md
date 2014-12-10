@@ -2,16 +2,16 @@
 NBA_presentation
 ================
 
-NBA catcher's presentation layer
+##NBA catcher's presentation layer
 
-heroku:
+###heroku:
 http://nba-presentation.herokuapp.com/
 
-NBA PLAYER page:
+###NBA PLAYER page:
 
 In this page, you can type the nba player's name in the text area. Press the submit button which will return the player's performance this year. (Note. you should type the whole and add '_' between firstname and lastname ex. 'kobe_bryant'
 
-PLAYERS page:
+###PLAYERS page:
 
 In this page, you can type a series of nba players' name.
 
