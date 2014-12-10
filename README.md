@@ -2,7 +2,7 @@
 NBA_presentation
 ================
 
-##NBA catcher's presentation layer
+NBA catcher's presentation layer
 
 ###heroku:
 http://nba-presentation.herokuapp.com/
