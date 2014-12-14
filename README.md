@@ -5,4 +5,6 @@ NBA_presentation
 NBA catcher's presentation layer
 
 heroku:
-http://nba-presentation.herokuapp.com/
+http://nba-presentation.herokuapp.com/o
+
+hello, I'm six.
