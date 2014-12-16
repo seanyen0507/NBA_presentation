@@ -15,8 +15,8 @@ class NBACatcherApp < Sinatra::Base
     enable :logging
   end
 
-  # API_BASE_URI = 'http://nba-dynamo.herokuapp.com'
-  API_BASE_URI = 'http://localhost:4567'
+  API_BASE_URI = 'http://nba-dynamo.herokuapp.com'
+  # API_BASE_URI = 'http://localhost:4567'
   API_VER = '/api/v1/'
 
   helpers do
