@@ -66,7 +66,7 @@ class NBACatcherApp < Sinatra::Base
     playernames = params[:playernames].split("\r\n")
     params_h = {
       playernames: playernames,
-      description: ['hi']
+      description: ['Searching the NBA start line_up today.']
     }
 
     options =  {
