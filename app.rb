@@ -40,6 +40,7 @@ class NBACatcherApp < Sinatra::Base
   get '/nba' do
     @playername = params[:playername]
     if @playername
+      @playername = @playername.gsub(' ','_')
       redirect "/nba/#{@playername}"
       return nil
     end
@@ -48,7 +49,6 @@ class NBACatcherApp < Sinatra::Base
 
   get '/nba/:playername' do
     @playername = params[:playername]
-    @playername = @playername.gsub(' ','_')
     @playername = @playername.gsub('-','_')
     temp = HTTParty.get api_url("player/#{@playername}.json")
     @nba = temp[0]
