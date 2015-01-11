@@ -11,8 +11,7 @@
     .float-clear
       %input{:type => 'submit', :value => 'submit', :id => 'check-submit', :class => 'submit'}
   %form{:action => "/nbaplayers/#{@id}", :method => 'post', :id => 'delete-form'}
-    - if @action == :update
-      %input{:type => 'submit', :name => '_method', :value => 'update', :class => 'update'}  
+    - if @action == :update 
       %input{:type => 'submit', :name => '_method', :value => 'delete', :class => 'delete'}
   - if @results
     %h1 Results

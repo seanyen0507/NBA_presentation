@@ -11,6 +11,7 @@ gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem 'haml'
 gem 'tilt'
+gem 'chartkick'
 
 group :development do
   gem 'sqlite3'

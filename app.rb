@@ -4,6 +4,7 @@ require 'haml'
 require 'sinatra/flash'
 
 require 'httparty'
+require 'chartkick'
 
 # Simple version of nba_scrapper
 class NBACatcherApp < Sinatra::Base
@@ -47,7 +48,14 @@ class NBACatcherApp < Sinatra::Base
 
   get '/nba/:playername' do
     @playername = params[:playername]
-    @nba = HTTParty.get api_url("player/#{@playername}.json")
+    @playername = @playername.gsub(' ','_')
+    @playername = @playername.gsub('-','_')
+    temp = HTTParty.get api_url("player/#{@playername}.json")
+    @nba = temp[0]
+    player_score = temp[1]
+    leader_score = temp[2]
+    @leader = player_score.zip(leader_score).flatten.compact
+    @leader = Hash[*@leader]
 
     if @playername && @nba.nil?
       flash[:notice] = 'playernames not found' if @nba.nil?
@@ -112,6 +120,7 @@ class NBACatcherApp < Sinatra::Base
 
   get '/nbaplayers/:id' do
     if session[:action] == :create
+      session[:action] = nil
       @results = JSON.parse(session[:result])
       @playernames = session[:playernames]
     else
